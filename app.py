@@ -171,7 +171,7 @@ def get_late_status(channel_id):
 
     if not video_ids:
         logger.debug("No upcoming live videos found")
-        return "none_scheduled", None
+        return "NO_SCHEDULE", None
 
     request = youtube.videos().list(part="liveStreamingDetails", id=",".join(video_ids))
     try:
