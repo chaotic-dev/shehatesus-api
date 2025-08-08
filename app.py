@@ -195,7 +195,7 @@ def get_late_status(channel_id):
             return "LIVE", None
         elif details.get("scheduledStartTime"):
             start_time = datetime.strptime(details["scheduledStartTime"], "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=timezone.utc)
-            logger.debug("Stream is scheduled for video ID: %s at %d", item["id"], start_time)
+            logger.debug("Stream is scheduled for video ID: %s at %s", item["id"], str(start_time))
             if start_time > datetime.now(timezone.utc) + timedelta(days=7):
                 logger.debug("Stream is not within the next week, skipping")
                 continue # Not within a week, skip
